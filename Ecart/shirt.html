@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>shirt</title>
+    <link rel="stylesheet" href="/css/shirt.css">
+</head>
+<body>
+    <header>
+        <h3><img src="shopping-cart.png" alt=""> <a href="index.html">Prime Cart</a></h3>
+        <div class="link">
+            <ul>
+                <li><a href="about.html" target="_blank">about</a></li>
+                <li><a href="shirt.html" target="_blank">shirt</a></li>
+                <li><a href="jense.html" target="_blank">jense</a></li>
+                <li><a href="tshirt.html" target="_blank">t-shirt</a></li>
+            </ul>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button type="submit">🔍</button>
+        </div>
+    </header>
+
+    <div class="con">
+        <h1>Store</h1>
+        <p>Buy with web3 wallet!</p>
+    </div>
+
+    <main>
+        <section class="product">
+            <img src="jacket.jpg" alt="Mens Cotton Jacket">
+            <h2>Mens Cotton Jacket</h2>
+            <p>$109.95 USD</p>
+            <button>View Details</button>
+        </section>
+    </main>
+
+    <script>
+        // Replace with your RapidAPI key
+        const apiKey = "YOUR_RAPIDAPI_KEY";
+
+        const fetchShirtData = async () => {
+            const url = "https://skein-men-shirt-api.p.rapidapi.com/apparel/menShirt";
+
+            try {
+                const response = await fetch(url, {
+                    method: "GET",
+                    headers: {
+                        "x-rapidapi-host": "skein-men-shirt-api.p.rapidapi.com",
+                        "x-rapidapi-key": apiKey
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`Error: ${response.status} - ${response.statusText}`);
+                }
+
+                const data = await response.json();
+                console.log("Shirt Data:", data);
+
+                // Process and display the data in the main section
+                displayShirts(data);
+
+            } catch (error) {
+                console.error("Error fetching shirt data:", error.message);
+            }
+        };
+
+        // Function to display shirts in the main section
+        const displayShirts = (shirts) => {
+            const productList = document.getElementById("product-list");
+            productList.innerHTML = ""; // Clear previous content
+
+            shirts.forEach(shirt => {
+                const product = document.createElement("section");
+                product.className = "product";
+
+                product.innerHTML = `
+                    <img src="${shirt.image}" alt="${shirt.name}">
+                    <h2>${shirt.name}</h2>
+                    <p>$${shirt.price} USD</p>
+                    <button>View Details</button>
+                `;
+
+                productList.appendChild(product);
+            });
+        };
+
+        // Call the function to fetch and display the shirt data
+        fetchShirtData();
+
+    </script>
+    
+</body>
+</html>

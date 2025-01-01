@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="/css/cart.css">
+</head>
+
+<body>
+    <header>
+        <h3><img src="/img/shopping-cart.png" alt=""> <a href="index.html">Prime Cart</a></h3>
+
+        <div class="link">
+            <ul>
+                <li><a href="about.html" target="_blank">about</a></li>
+                <li><a href="shirt.html" target="_blank">shirt</a></li>
+                <li><a href="jense.html" target="_blank">jense</a></li>
+                <li><a href="tshirt.html" target="_blank">t-shirt</a></li>
+                <li><a href="cart.html" target="_blank">cart</a></li>
+            </ul>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search products...">
+            <button type="submit"><img src="/img/search1.png" alt=""></button>
+        </div>
+
+        <div class="menu">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div class="link-1">
+            <ul>
+                <li><a href="about.html" target="_blank">about</a></li>
+                <li><a href="shirt.html" target="_blank">shirt</a></li>
+                <li><a href="jense.html" target="_blank">jense</a></li>
+                <li><a href="tshirt.html" target="_blank">t-shirt</a></li>
+            </ul>
+        </div>
+
+    </header>
+
+    <nav>
+        <h1>Prime Shopping-cart</h1>
+    </nav>
+    
+    <main>
+
+        <section class="product-list">
+            <h2>Products</h2>
+            <div class="product" data-id="1" data-name="T-shirt" data-price="499">
+                <h3>T-shirt</h3>
+                <p>Price: ₹499</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product" data-id="2" data-name="Jeans" data-price="1199">
+                <h3>Jeans</h3>
+                <p>Price: ₹1199</p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+        </section>
+
+        <section class="cart">
+            <h2>Your Cart</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="cart-items">
+
+                </tbody>
+            </table>
+
+            <div class="cart-total">
+                <h3>Total: ₹<span id="cart-total">0</span></h3>
+            </div>
+            
+        </section>
+
+    </main>
+    <script src="app.js"></script>
+</body>
+
+</html>
